@@ -1,9 +1,9 @@
 import React from 'react';
-import UCSBOrganizationForm from "main/components/Organization/OrganizationForm"
+import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm"
 import { ucsbOrganizationFixtures } from 'fixtures/ucsbOrganizationFixtures';
 
 export default {
-    title: 'components/UCSBOrganization/OrganizationForm',
+    title: 'components/UCSBOrganization/UCSBOrganizationForm',
     component: UCSBOrganizationForm
 };
 
