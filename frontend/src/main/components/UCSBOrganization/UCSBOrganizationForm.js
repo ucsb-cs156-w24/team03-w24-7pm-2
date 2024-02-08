@@ -73,12 +73,16 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 <Form.Control
                     data-testid={testIdPrefix + "-inactive"}
                     id="inactive"
-                    type="Boolean"
+                    as="select"
                     isInvalid={Boolean(errors.inactive)}
                     {...register("inactive", {
                         required: "inactive is required."
                     })}
-                />
+                >
+                <option value="">Select</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+                </Form.Control>
                 <Form.Control.Feedback type="invalid">
                     {errors.inactive?.message}
                 </Form.Control.Feedback>
