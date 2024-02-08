@@ -10,6 +10,7 @@ export default function UCSBOrganizationCreatePage({storybook=false}) {
     url: "/api/ucsborganization/post",
     method: "POST",
     params: {
+     orgCode: ucsborganization.orgCode,
      orgTranslationShort: ucsborganization.orgTranslationShort,
      orgTranslation: ucsborganization.orgTranslation,
      inactive: ucsborganization.inactive,
@@ -17,7 +18,8 @@ export default function UCSBOrganizationCreatePage({storybook=false}) {
   });
 
   const onSuccess = (ucsborganization) => {
-    toast(`New ucsborganization Created - orgCode: ${ucsborganization.orgCode} orgTranslationShort: ${ucsborganization.orgTranslationShort}`);
+    toast(`New ucsborganization Created - orgCode: ${ucsborganization.orgCode} orgTranslationShort: ${ucsborganization.orgTranslationShort} orgTranslation: ${ucsborganization.orgTranslation} inactive: ${ucsborganization.inactive}`);
+
   }
 
   const mutation = useBackendMutation(

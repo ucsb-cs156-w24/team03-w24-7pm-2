@@ -67,8 +67,9 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
         fireEvent.click(submitButton);
-
-        await screen.findByText(/orgTranslationShort is required./);
+        
+        await screen.findByText(/orgCode is required./);
+        expect(screen.getByText(/orgTranslationShort is required./)).toBeInTheDocument();
         expect(screen.getByText(/inactive is required./)).toBeInTheDocument();
         expect(screen.getByText(/orgTranslation is required./)).toBeInTheDocument();
 
@@ -84,14 +85,16 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm submitAction={mockSubmitAction} />
             </Router>
         );
-        await screen.findByTestId("UCSBOrganizationForm-orgTranslationShort");
+        await screen.findByTestId("UCSBOrganizationForm-orgCode");
 
+        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
         const orgTranslationShortField = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
         const inactive = screen.getByTestId("UCSBOrganizationForm-inactive");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
-        fireEvent.change(orgTranslationShortField, { target: { value: 'ZPR' } });
+        fireEvent.change(orgCodeField, { target: { value: 'ZPR' } });
+        fireEvent.change(orgTranslationShortField, { target: { value: 'ZETA PHI RHO' } });
         fireEvent.change(orgTranslationField, { target: { value: 'ZETA PHI RHO' } });
         fireEvent.change(inactive, { target: { value: false } });
         fireEvent.click(submitButton);

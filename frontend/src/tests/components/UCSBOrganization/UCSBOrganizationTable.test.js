@@ -29,7 +29,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganization={[]} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsborganization={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -54,7 +54,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsborganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -94,7 +94,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsborganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -129,7 +129,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsborganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -145,7 +145,7 @@ describe("UCSBOrganizationTable tests", () => {
     fireEvent.click(editButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbOrganization/edit/ZPR'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsborganization/edit/ZPR'));
 
   });
 
@@ -157,7 +157,7 @@ describe("UCSBOrganizationTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBOrganizationTable ucsbOrganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
+          <UCSBOrganizationTable ucsborganization={ucsbOrganizationFixtures.threeOrganization} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
     );

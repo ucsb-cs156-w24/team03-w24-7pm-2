@@ -73,8 +73,15 @@ describe("UCSBOrganizationCreatePage tests", () => {
         )
 
         await waitFor(() => {
-            expect(screen.getByLabelText("orgTranslationShort")).toBeInTheDocument();
+            expect(screen.getByLabelText("orgCode")).toBeInTheDocument();
         });
+
+        const orgCodeInput = screen.getByLabelText("orgCode");
+        expect(orgCodeInput).toBeInTheDocument();
+
+        // await waitFor(() => {
+        //     expect(screen.getByLabelText("orgTranslationShort")).toBeInTheDocument();
+        // });
 
         const orgTranslationShortInput = screen.getByLabelText("orgTranslationShort");
         expect(orgTranslationShortInput).toBeInTheDocument();
@@ -88,6 +95,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
         const createButton = screen.getByText("Create");
         expect(createButton).toBeInTheDocument();
 
+        fireEvent.change(orgCodeInput, { target: { value: 'ZPR' } })
         fireEvent.change(orgTranslationShortInput, { target: { value: 'ZETA PHI RHO' } })
         fireEvent.change(orgTranslationInput, { target: { value: 'ZETA PHI RHO' } })
         fireEvent.change(inactiveInput, { target: { value: "false" } })
@@ -96,13 +104,14 @@ describe("UCSBOrganizationCreatePage tests", () => {
         await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
         expect(axiosMock.history.post[0].params).toEqual({
+            orgCode: "ZPR",
             orgTranslationShort: "ZETA PHI RHO",
             orgTranslation: "ZETA PHI RHO",
             inactive: "false"
         });
 
         // assert - check that the toast was called with the expected message
-        expect(mockToast).toBeCalledWith("New ucsborganization Created - orgCode: ZPR orgTranslationShort: ZETA PHI RHO");
+        expect(mockToast).toBeCalledWith("New ucsborganization Created - orgCode: ZPR orgTranslationShort: ZETA PHI RHO orgTranslation: ZETA PHI RHO inactive: false");
         expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganization" });
 
     });
