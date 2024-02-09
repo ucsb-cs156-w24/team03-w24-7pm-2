@@ -1,5 +1,5 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
-import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
+import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -20,7 +20,11 @@ describe("MenuItemReviewForm tests", () => {
             <MenuItemReviewForm />
          </Router>
       );
-      await screen.findByText(/Quarter YYYYQ/);
+      await screen.findByText(/Item ID/);
+      await screen.findByText(/Reviewer Email/);
+      await screen.findByText(/Stars/);
+      await screen.findByText(/Date Reviewed\(iso format\)/);
+      await screen.findByText(/Comments/);
       await screen.findByText(/Create/);
    });
 
@@ -36,7 +40,6 @@ describe("MenuItemReviewForm tests", () => {
       expect(screen.getByText(/Id/)).toBeInTheDocument();
       expect(screen.getByTestId(/MenuItemReviewForm-id/)).toHaveValue("1");
    });
-
 
    test("Correct Error messsages on bad input", async () => {
 
@@ -61,7 +64,7 @@ describe("MenuItemReviewForm tests", () => {
 
       fireEvent.click(submitButton);
 
-      await screen.findByText(/dateReviewed must be in the format YYYYQ/);
+      await screen.findByText(/DateReviewed is required./);
    });
 
    test("Correct Error messsages on missing input", async () => {
@@ -76,7 +79,7 @@ describe("MenuItemReviewForm tests", () => {
 
       fireEvent.click(submitButton);
 
-      await screen.findByText(/ItemId is required./);
+      await screen.findByText(/ItemID is required./);
       expect(screen.getByText(/ReviewerEmail is required./)).toBeInTheDocument();
       expect(screen.getByText(/Stars is required./)).toBeInTheDocument();
       expect(screen.getByText(/DateReviewed is required./)).toBeInTheDocument();

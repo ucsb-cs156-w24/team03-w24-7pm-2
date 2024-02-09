@@ -59,7 +59,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      {...register("itemId", { required: true,})}
                   />
                   <Form.Control.Feedback type="invalid">
-                     {errors.itemId && 'ItemID is required. '}
+                     {errors.itemId && 'ItemID is required.'}
                   </Form.Control.Feedback>
                </Form.Group>
             </Col>
@@ -74,7 +74,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      {...register("reviewerEmail", { required: true, pattern: email_regex})}
                   />
                   <Form.Control.Feedback type="invalid">
-                     {errors.reviewerEmail && 'ReviewerEmail is required. '}
+                     {errors.reviewerEmail && 'ReviewerEmail is required.'}
                   </Form.Control.Feedback>
                </Form.Group>
             </Col>
@@ -89,7 +89,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      {...register("stars", { required: true, pattern: stars_regex})}
                   />
                   <Form.Control.Feedback type="invalid">
-                     {errors.stars && 'stars is required. '}
+                     {errors.stars && 'Stars is required.'}
                   </Form.Control.Feedback>
                </Form.Group>
             </Col>
@@ -104,7 +104,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      {...register("dateReviewed", { required: true, pattern: isodate_regex })}
                   />
                   <Form.Control.Feedback type="invalid">
-                     {errors.dateReviewed && 'DateReviewed is required. '}
+                     {errors.dateReviewed && 'DateReviewed is required.'}
                   </Form.Control.Feedback>
                </Form.Group>
             </Col>
@@ -119,7 +119,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      {...register("comments", { required: true, })}
                   />
                   <Form.Control.Feedback type="invalid">
-                     {errors.comments && 'Comments is required. '}
+                     {errors.comments && 'Comments is required.'}
                   </Form.Control.Feedback>
                </Form.Group>
             </Col>
@@ -149,14 +149,14 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             <Col>
                <Button
                   type="submit"
-                  data-testid="MenuItemReview-submit"
+                  data-testid="MenuItemReviewForm-submit"
                >
                   {buttonLabel}
                </Button>
                <Button
                   variant="Secondary"
                   onClick={() => navigate(-1)}
-                  data-testid="MenuItemReview-cancel"
+                  data-testid="MenuItemReviewForm-cancel"
                >
                   Cancel
                </Button>
