@@ -43,9 +43,9 @@ public class UCSBOrganizationController extends ApiController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public UCSBOrganization getById(
-            @Parameter(name="code") @RequestParam String code) {
-        UCSBOrganization commons = ucsbOrganizationRepository.findById(code)
-                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, code));
+            @Parameter(name="orgCode") @RequestParam String orgCode) {
+        UCSBOrganization commons = ucsbOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
 
         return commons;
     }
@@ -76,11 +76,11 @@ public class UCSBOrganizationController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
     public UCSBOrganization updateOrganizations(
-            @Parameter(name="code") @RequestParam String code,
+            @Parameter(name="orgCode") @RequestParam String orgCode,
             @RequestBody @Valid UCSBOrganization incoming) {
 
-        UCSBOrganization organizations = ucsbOrganizationRepository.findById(code)
-                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, code));
+        UCSBOrganization organizations = ucsbOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
 
 
         organizations.setOrgCode(incoming.getOrgCode());  

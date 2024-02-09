@@ -63,7 +63,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
         when(ucsbOrganizationRepository.findById(eq("SENTINELS"))).thenReturn(Optional.empty());
 
         // act
-        MvcResult response = mockMvc.perform(get("/api/ucsborganization?code=SENTINELS"))
+        MvcResult response = mockMvc.perform(get("/api/ucsborganization?orgCode=SENTINELS"))
                 .andExpect(status().isNotFound()).andReturn();
 
         // assert
@@ -128,7 +128,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         @Test
         public void logged_out_users_cannot_get_by_id() throws Exception {
-        mockMvc.perform(get("/api/ucsborganization?code=SKY"))
+        mockMvc.perform(get("/api/ucsborganization?orgCode=SKY"))
                 .andExpect(status().is(403)); // logged out users can't get by id
         }
 
@@ -147,7 +147,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         when(ucsbOrganizationRepository.findById(eq("OSLI"))).thenReturn(Optional.of(OSLI));
         // act
-        MvcResult response = mockMvc.perform(get("/api/ucsborganization?code=OSLI"))
+        MvcResult response = mockMvc.perform(get("/api/ucsborganization?orgCode=OSLI"))
                 .andExpect(status().isOk()).andReturn();
         // assert
         verify(ucsbOrganizationRepository, times(1)).findById(eq("OSLI"));
@@ -251,7 +251,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         // act
         MvcResult response = mockMvc.perform(
-                put("/api/ucsborganization?code=ZPR")
+                put("/api/ucsborganization?orgCode=ZPR")
                         .contentType(MediaType.APPLICATION_JSON)
                         .characterEncoding("utf-8")
                         .content(requestBody)
@@ -284,7 +284,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         // act
         MvcResult response = mockMvc.perform(
-                put("/api/ucsborganization?code=C9")
+                put("/api/ucsborganization?orgCode=C9")
                         .contentType(MediaType.APPLICATION_JSON)
                         .characterEncoding("utf-8")
                         .content(requestBody)
