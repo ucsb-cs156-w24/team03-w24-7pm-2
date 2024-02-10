@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
-import MenuItemReviewTable from "main/components/MenuItemReviews/MenuItemReviewTable"
+import { menuItemReviewsFixtures } from "fixtures/menuItemReviewsFixtures";
+import MenuItemReviewsTable from "main/components/MenuItemReviews/MenuItemReviewsTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
@@ -23,7 +23,7 @@ describe("UserTable tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <MenuItemReviewTable menuItemReviews={menuItemReviewsFixtures.threeDMenuItemReviews} currentUser={currentUser} />
+               <MenuItemReviewsTable menuItemReviews={menuItemReviewsFixtures.threeMenuItemReviews} currentUser={currentUser} />
             </MemoryRouter>
          </QueryClientProvider>
 
@@ -31,6 +31,7 @@ describe("UserTable tests", () => {
 
       const expectedHeaders = ["id", "ItemId", "ReviewerEmail", "Stars", "DateReviewed", "Comments"];
       const expectedFields = ["id", "itemId", "reviewerEmail", "stars", "dateReviewed", "comments"];
+      const testId = "MenuItemReviewsTable";
 
       expectedHeaders.forEach((headerText) => {
          const header = screen.getByText(headerText);
@@ -60,7 +61,7 @@ describe("UserTable tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <MenuItemReviewsTable menuItemReviews={MenuItemReviewsFixtures.threeMenuItemReviews} currentUser={currentUser} />
+               <MenuItemReviewsTable menuItemReviews={menuItemReviewsFixtures.threeMenuItemReviews} currentUser={currentUser} />
             </MemoryRouter>
          </QueryClientProvider>
 
@@ -113,7 +114,7 @@ describe("UserTable tests", () => {
 
       fireEvent.click(editButton);
 
-      await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuitemreviews/edit/1'));
+      await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuitemreview/edit/1'));
 
    });
 
