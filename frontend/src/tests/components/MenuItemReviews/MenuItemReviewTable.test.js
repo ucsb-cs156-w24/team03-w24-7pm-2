@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { menuItemReviewsFixtures } from "fixtures/menuItemReviewsFixtures";
-import MenuItemReviewsTable from "main/components/MenuItemReviews/MenuItemReviewsTable"
+import MenuItemReviewsTable from "main/components/MenuItemReviews/MenuItemReviewsTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
@@ -118,5 +118,36 @@ describe("UserTable tests", () => {
 
    });
 
+
+   test("Delete button calls delete callback", async () => {
+
+      // arrange
+      const currentUser = currentUserFixtures.adminUser;
+
+      // act - render the component
+      render(
+         <QueryClientProvider client={queryClient}>
+            <MemoryRouter>
+               <MenuItemReviewsTable menuItemReviews={menuItemReviewsFixtures.threeMenuItemReviews} currentUser={currentUser} />
+            </MemoryRouter>
+         </QueryClientProvider>
+      );
+      
+      const testId = "MenuItemReviewsTable";
+      
+      // assert - check that the expected content is rendered
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent("1");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-reviewerEmail`)).toHaveTextContent("email1@email.com");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-stars`)).toHaveTextContent("1");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-dateReviewed`)).toHaveTextContent("2024-02-09T07:47:01.623Z");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-comments`)).toHaveTextContent("comment1");
+      const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+      
+      expect(deleteButton).toBeInTheDocument();
+
+      // act - click the delete button
+      fireEvent.click(deleteButton);
+   });
 });
 
