@@ -57,8 +57,8 @@ describe("MenuItemReviewForm tests", () => {
       const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
       fireEvent.change(itemIdField, { target: { value: 'bad-input' } });
-      fireEvent.change(reviewerEmailField, { target: { value: 'bad-input' } });
-      fireEvent.change(starsField, { target: { value: 'bad-input' } });
+      fireEvent.change(reviewerEmailField, { target: { value: 'bad@email.' } });
+      fireEvent.change(starsField, { target: { value: '6' } });
       fireEvent.change(dateReviewedField, { target: { value: 'bad-input' } });
       fireEvent.change(commentsField, { target: { value: 'bad-input' } });
 
