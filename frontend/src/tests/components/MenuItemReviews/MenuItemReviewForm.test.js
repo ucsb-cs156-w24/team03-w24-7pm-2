@@ -10,9 +10,7 @@ jest.mock('react-router-dom', () => ({
    useNavigate: () => mockedNavigate
 }));
 
-
 describe("MenuItemReviewForm tests", () => {
-
    test("renders correctly", async () => {
 
       render(
@@ -138,5 +136,3 @@ describe("MenuItemReviewForm tests", () => {
 
    });
 });
-
-
