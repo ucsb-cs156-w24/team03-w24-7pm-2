@@ -6,7 +6,10 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/MenuItemRev
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemReviewsTable({ menuItemReviews, currentUser }) {
+export default function MenuItemReviewsTable({
+   menuItemReviews,
+   currentUser,
+   testIdPrefix = "MenuItemReviewsTable" }) {
 
    const navigate = useNavigate();
 
@@ -24,19 +27,17 @@ export default function MenuItemReviewsTable({ menuItemReviews, currentUser }) {
    // Stryker restore all 
 
    // Stryker disable next-line all : TODO try to make a good test for this
-   const deleteCallback = async (cell) => { 
-      deleteMutation.mutate(cell); 
-   }
-
+   const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
    const columns = [
       {
          Header: 'id',
          accessor: 'id', // accessor is the "key" in the data
       },
+
       {
-         Header: 'ItemId',
-         accessor: 'itemId',
+         Header: "ItemId", 
+         accessor: "itemId"
       },
       {
          Header: 'ReviewerEmail',
@@ -49,7 +50,7 @@ export default function MenuItemReviewsTable({ menuItemReviews, currentUser }) {
       {
          Header: 'DateReviewed',
          accessor: 'dateReviewed',
-      },
+      }, 
       {
          Header: 'Comments',
          accessor: 'comments',
@@ -57,13 +58,14 @@ export default function MenuItemReviewsTable({ menuItemReviews, currentUser }) {
    ];
 
    if (hasRole(currentUser, "ROLE_ADMIN")) {
-      columns.push(ButtonColumn("Edit", "primary", editCallback, "MenuItemReviewsTable"));
-      columns.push(ButtonColumn("Delete", "danger", deleteCallback, "MenuItemReviewsTable"));
+      columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
+      columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
    }
 
    return <OurTable
       data={menuItemReviews}
       columns={columns}
-      testid={"MenuItemReviewsTable"}
+      testid={testIdPrefix}
    />;
 };
+
