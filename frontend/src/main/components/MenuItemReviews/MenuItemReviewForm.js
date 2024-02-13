@@ -22,8 +22,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
    // Stryker disable next-line Regex
    const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
    
-   const email_regex = /^\S+@\S+\.\S+$/;
-   const stars_regex = /^[1-5]$/; 
+   // const email_regex = /^\S+@\S+\.\S+$/;
+   // const stars_regex = /^[1-5]$/; 
 
 
    return (
@@ -72,7 +72,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      id="reviewerEmail"
                      type="text"
                      isInvalid={Boolean(errors.reviewerEmail)}
-                     {...register("reviewerEmail", { required: true, pattern: email_regex})}
+                     // {...register("reviewerEmail", { required: true, pattern: email_regex})}
+                     {...register("reviewerEmail", { required: true, })}
+
                   />
                   <Form.Control.Feedback type="invalid">
                      {errors.reviewerEmail && 'ReviewerEmail is required.'}
@@ -87,7 +89,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                      id="stars"
                      type="number"
                      isInvalid={Boolean(errors.stars)}
-                     {...register("stars", { required: true, pattern: stars_regex})}
+                     // {...register("stars", { required: true, pattern: stars_regex})}
+                     {...register("stars", { required: true, })}
+
                   />
                   <Form.Control.Feedback type="invalid">
                      {errors.stars && 'Stars is required.'}
