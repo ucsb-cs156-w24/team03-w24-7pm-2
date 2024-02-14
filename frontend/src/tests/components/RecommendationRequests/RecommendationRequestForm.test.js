@@ -20,11 +20,11 @@ describe("RecommendationRequestForm tests", () => {
                 <RecommendationRequestForm />
             </Router>
         );
-        await screen.findByText(/Requester Email/); 
-        await screen.findByText(/Professor Email/); 
+        await screen.findByText(/RequesterEmail/); 
+        await screen.findByText(/ProfessorEmail/); 
         await screen.findByText(/Explanation/); 
-        await screen.findByText(/Date Requested\(iso format\)/); 
-        await screen.findByText(/Date Needed\(iso format\)/);
+        await screen.findByText(/DateRequested\(iso format\)/); 
+        await screen.findByText(/DateNeeded\(iso format\)/);
         await screen.findByText(/done/); 
         await screen.findByText(/Create/);
     });
@@ -43,7 +43,7 @@ describe("RecommendationRequestForm tests", () => {
     });
 
 
-    test("Correct Error messsages on bad input", async () => {
+    test("Correct Error messages on bad input", async () => {
 
         render(
             <Router  >
@@ -82,7 +82,7 @@ describe("RecommendationRequestForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/RequesterEmail is required./);
+        expect(screen.getByText(/RequesterEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/ProfessorEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
         expect(screen.getByText(/DateRequested is required./)).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe("RecommendationRequestForm tests", () => {
 
     });
 
-    test("No Error messsages on good input", async () => {
+    test("No Error messages on good input", async () => {
 
         const mockSubmitAction = jest.fn();
 

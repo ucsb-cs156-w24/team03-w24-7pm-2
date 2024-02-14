@@ -114,11 +114,11 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateRequested)}
                             {...register("dateRequested", {
-                                required: "dateRequested is required.", pattern: isodate_regex })}
+                                required: "DateRequested is required.", pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateRequested?.message}
-                            {errors.dateRequested?.type === 'pattern' && 'dateRequested must be in ISO format'}
+                            {errors.dateRequested?.type === 'pattern' && 'DateRequested must be in ISO format'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -132,11 +132,11 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateNeeded)}
                             {...register("dateNeeded", {
-                                required: "dateNeeded is required.", pattern: isodate_regex })}
+                                required: "DateNeeded is required.", pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateNeeded?.message}
-                            {errors.dateNeeded?.type === 'pattern' && 'dateNeeded must be in ISO format'}
+                            {errors.dateNeeded?.type === 'pattern' && 'DateNeeded must be in ISO format'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -150,7 +150,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             type="boolean"
                             isInvalid={Boolean(errors.done)}
                             {...register("done", {
-                                required: "done is required.", })}
+                                required: "Done is required.", })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.done?.message}
