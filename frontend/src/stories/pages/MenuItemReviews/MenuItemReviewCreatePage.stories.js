@@ -6,7 +6,7 @@ import { rest } from "msw";
 import MenuItemReviewCreatePage from "main/pages/MenuItemReviews/MenuItemReviewCreatePage";
 
 export default {
-   title: 'pages/MenuItemReview/MenuItemReviewCreatePage',
+   title: 'pages/MenuItemReviews/MenuItemReviewCreatePage',
    component: MenuItemReviewCreatePage
 };
 
