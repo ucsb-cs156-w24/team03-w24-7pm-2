@@ -120,8 +120,8 @@ describe("RecommendationRequestForm tests", () => {
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
-
-        await screen.findByText(/RequesterEmail is required./);
+        
+        expect(screen.getByText(/RequesterEmail is required./)).not.toBeInTheDocument();
         expect(screen.getByText(/ProfessorEmail is required./)).not.toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).not.toBeInTheDocument();
         expect(screen.getByText(/DateRequested is required./)).not.toBeInTheDocument();
