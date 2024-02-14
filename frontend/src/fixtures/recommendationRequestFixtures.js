@@ -5,7 +5,7 @@ const recommendationRequestFixtures = {
         "professorEmail": "professor1@ucsb.edu",
         "explanation": "explanation1",
         "dateRequested": "2022-01-02T12:00:00",
-        "dateRequested": "2022-01-02T12:00:00",
+        "dateNeeded": "2022-01-02T12:00:00",
         "done": "false"
     },
     threeRequests: [
@@ -15,7 +15,7 @@ const recommendationRequestFixtures = {
             "professorEmail": "professor1@ucsb.edu",
             "explanation": "explanation1",
             "dateRequested": "2022-01-02T12:00:00",
-            "dateRequested": "2022-01-02T12:00:00",
+            "dateNeeded": "2022-01-02T12:00:00",
             "done": "false"
         },
         {
@@ -24,7 +24,7 @@ const recommendationRequestFixtures = {
             "professorEmail": "professor2@ucsb.edu",
             "explanation": "explanation2",
             "dateRequested": "2022-02-02T12:00:00",
-            "dateRequested": "2022-02-02T12:00:00",
+            "dateNeeded": "2022-02-02T12:00:00",
             "done": "true"
         },
         {
@@ -33,7 +33,7 @@ const recommendationRequestFixtures = {
             "professorEmail": "professor3@ucsb.edu",
             "explanation": "explanation3",
             "dateRequested": "2022-03-02T12:00:00",
-            "dateRequested": "2022-03-02T12:00:00",
+            "dateNeeded": "2022-03-02T12:00:00",
             "done": "false"
         }
     ]
