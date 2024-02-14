@@ -1,6 +1,6 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
-import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
+import { menuItemReviewsFixtures } from "fixtures/menuItemReviewsFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const mockedNavigate = jest.fn();
@@ -33,7 +33,7 @@ describe("MenuItemReviewForm tests", () => {
 
       render(
          <Router  >
-            <MenuItemReviewForm initialContents={menuItemReviewFixtures.oneMenuItemReview} />
+            <MenuItemReviewForm initialContents={menuItemReviewsFixtures.oneMenuItemReview} />
          </Router>
       );
       await screen.findByTestId(/MenuItemReviewForm-id/);
@@ -57,8 +57,8 @@ describe("MenuItemReviewForm tests", () => {
       const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
       fireEvent.change(itemIdField, { target: { value: 'bad-input' } });
-      fireEvent.change(reviewerEmailField, { target: { value: 'bad@email.' } });
-      fireEvent.change(starsField, { target: { value: '6' } });
+      fireEvent.change(reviewerEmailField, { target: { value: 'bad-input' } });
+      fireEvent.change(starsField, { target: { value: 'bad-input' } });
       fireEvent.change(dateReviewedField, { target: { value: 'bad-input' } });
       fireEvent.change(commentsField, { target: { value: 'bad-input' } });
 

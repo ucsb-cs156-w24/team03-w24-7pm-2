@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm"
-import { menuItemReviewFixtures } from 'fixtures/menuItemReviewFixtures';
+import { menuItemReviewsFixtures } from 'fixtures/menuItemReviewsFixtures';
 
 export default {
    title: 'components/MenuItemReviews/MenuItemReviewForm',
@@ -27,7 +27,7 @@ Create.args = {
 export const Update = Template.bind({});
 
 Update.args = {
-   initialContents: menuItemReviewFixtures.oneMenuItemReview,
+   initialContents: menuItemReviewsFixtures.oneMenuItemReview,
    buttonLabel: "Update",
    submitAction: (data) => {
       console.log("Submit was clicked with data: ", data);
