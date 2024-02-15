@@ -118,7 +118,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateRequested && 'DateRequested is required.'}
-                            {errors.dateRequested.type === 'pattern' && 'DateRequested must be in the ISO format'}
+                            {errors.dateRequested?.type === 'pattern' && 'DateRequested must be in the ISO format'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -136,7 +136,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateNeeded && 'DateNeeded is required.'}
-                            {errors.dateNeeded.type === 'pattern' && 'DateNeeded must be in ISO format'}
+                            {errors.dateNeeded?.type === 'pattern' && 'DateNeeded must be in ISO format'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
