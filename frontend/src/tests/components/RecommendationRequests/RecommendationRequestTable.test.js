@@ -145,7 +145,7 @@ describe("RecommendationRequestTable tests", () => {
     fireEvent.click(editButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequests/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequests/edit/2'));
 
   });
 
@@ -163,7 +163,7 @@ describe("RecommendationRequestTable tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
