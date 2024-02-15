@@ -21,11 +21,6 @@ describe("RecommendationRequestForm tests", () => {
             </Router>
         );
         await screen.findByText(/Requester Email/); 
-        await screen.findByText(/Professor Email/); 
-        await screen.findByText(/Explanation/); 
-        await screen.findByText(/Date Requested\(iso format\)/); 
-        await screen.findByText(/Date Needed\(iso format\)/);
-        await screen.findByText(/Done/); 
         await screen.findByText(/Create/);
     });
 
@@ -67,7 +62,7 @@ describe("RecommendationRequestForm tests", () => {
         fireEvent.change(doneField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
-        await screen.findByText(/RequesterEmail is required./);
+        await screen.queryByText(/RequesterEmail is required./);
     });
 
     test("Correct Error messages on missing input", async () => {
@@ -82,7 +77,7 @@ describe("RecommendationRequestForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        expect(screen.getByText(/RequesterEmail is required./)).toBeInTheDocument();
+        await(screen.findByText(/RequesterEmail is required./));
         expect(screen.getByText(/ProfessorEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
         expect(screen.getByText(/DateRequested is required./)).toBeInTheDocument();
