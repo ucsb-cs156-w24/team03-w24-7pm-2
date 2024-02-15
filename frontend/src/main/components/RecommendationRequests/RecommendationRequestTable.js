@@ -5,7 +5,7 @@ import { hasRole } from "main/utils/currentUser";
 import { useBackendMutation } from "main/utils/useBackend";
 import { useNavigate } from "react-router-dom";
 
-export default function RecommendationRequestTable({ recommendations, currentUser }) {
+export default function RecommendationRequestTable({ recommendations, currentUser, testIdPrefix = "RecommendationRequestTable" }) {
 
     const navigate = useNavigate();
 
@@ -58,13 +58,13 @@ export default function RecommendationRequestTable({ recommendations, currentUse
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
     } 
 
     return <OurTable
         data={recommendations}
         columns={columns}
-        testid={"RecommendationRequestTable"}
+        testid={testIdPrefix}
     />;
 };
