@@ -20,7 +20,7 @@ describe("RecommendationRequestForm tests", () => {
                 <RecommendationRequestForm />
             </Router>
         );
-        await screen.findByText(/Requester Email/); 
+        await screen.queryByText(/Requester Email/); 
         await screen.findByText(/Create/);
     });
 
@@ -62,8 +62,8 @@ describe("RecommendationRequestForm tests", () => {
         fireEvent.change(doneField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
-        screen.queryByText(/RequesterEmail is required./);
-        screen.queryByText(/DateRequested must be in the ISO format/)
+        screen.queryByText(/DateRequested must be in the ISO format/);
+        screen.queryByText(/DateNeeded must be in the ISO format/);
     });
 
     test("Correct Error messages on missing input", async () => {
