@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.61% </span>
+                <span class="strong">90.47% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/21</span>
+                <span class='fraction'>19/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -258,23 +258,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -419,7 +419,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -492,7 +492,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             {...register("requesterEmail", { required: true, })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.requesterEmail &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'RequesterEmail is required.'}</span>
+                            {errors.requesterEmail &amp;&amp; 'RequesterEmail is required.'}
             
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
@@ -508,7 +508,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             {...register("professorEmail", { required: true, })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.professorEmail &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'ProfessorEmail is required.'}</span>
+                            {errors.professorEmail &amp;&amp; 'ProfessorEmail is required.'}
             
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
@@ -530,7 +530,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                             })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.explanation &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'Explanation is required.'}</span>
+                            {errors.explanation &amp;&amp; 'Explanation is required.'}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -550,8 +550,8 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                                 required: true, pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.dateRequested &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateRequested is required.'}</span>
-                            {errors.dateRequested.type === 'pattern' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateRequested must be in the ISO format'}</span>
+                            {errors.dateRequested &amp;&amp; 'DateRequested is required.'}
+                            {errors.dateRequested?.type === 'pattern' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateRequested must be in the ISO format'}</span>
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -569,7 +569,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
                             {errors.dateNeeded &amp;&amp; 'DateNeeded is required.'}
-                            {errors.dateNeeded.type === 'pattern' &amp;&amp; 'DateNeeded must be in ISO format'}
+                            {errors.dateNeeded?.type === 'pattern' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'DateNeeded must be in ISO format'}</span>
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -603,7 +603,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                     &lt;/Button&gt;
                     &lt;Button
                         variant="Secondary"
-                        onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate(-1)}</span>
+                        onClick={() =&gt; navigate(-1)}
                         data-testid="RecommendationRequestForm-cancel"
                     &gt;
                         Cancel
@@ -622,7 +622,7 @@ export default RecommendationRequestForm;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Feb 14 2024 18:50:23 GMT-0800 (Pacific Standard Time)
+                at Wed Feb 14 2024 18:57:39 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
