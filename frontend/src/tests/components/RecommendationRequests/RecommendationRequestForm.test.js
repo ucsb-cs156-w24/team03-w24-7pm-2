@@ -20,7 +20,7 @@ describe("RecommendationRequestForm tests", () => {
                 <RecommendationRequestForm />
             </Router>
         );
-        await screen.queryByText(/Requester Email/); 
+        screen.queryByText(/Requester Email/); 
         await screen.findByText(/Create/);
     });
 
