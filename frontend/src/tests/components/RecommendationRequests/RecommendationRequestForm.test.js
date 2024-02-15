@@ -62,7 +62,7 @@ describe("RecommendationRequestForm tests", () => {
         fireEvent.change(doneField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
-        await screen.queryByText(/RequesterEmail is required./);
+        screen.queryByText(/RequesterEmail is required./);
     });
 
     test("Correct Error messages on missing input", async () => {
