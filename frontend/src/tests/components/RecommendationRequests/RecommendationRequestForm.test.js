@@ -70,7 +70,7 @@ describe("RecommendationRequestForm tests", () => {
         await screen.findByText(/RequesterEmail is required./);
     });
 
-    test("Correct Error messsages on missing input", async () => {
+    test("Correct Error messages on missing input", async () => {
 
         render(
             <Router  >
@@ -121,12 +121,12 @@ describe("RecommendationRequestForm tests", () => {
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
         
-        expect(screen.getByText(/RequesterEmail is required./)).not.toBeInTheDocument();
-        expect(screen.getByText(/ProfessorEmail is required./)).not.toBeInTheDocument();
-        expect(screen.getByText(/Explanation is required./)).not.toBeInTheDocument();
-        expect(screen.getByText(/DateRequested is required./)).not.toBeInTheDocument();
-        expect(screen.getByText(/DateNeeded is required./)).not.toBeInTheDocument();
-        expect(screen.getByText(/Done is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/RequesterEmail is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/ProfessorEmail is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Explanation is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/DateRequested is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/DateNeeded is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Done is required./)).not.toBeInTheDocument();
 
     });
 
