@@ -29,7 +29,7 @@ describe("RecommendationRequestTable tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <RecommendationRequestTable recommendationRequests={[]} currentUser={currentUser} />
+               <RecommendationRequestTable recommendationRequests={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
             </MemoryRouter>
          </QueryClientProvider>
       );
