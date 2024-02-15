@@ -101,7 +101,7 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <RecommendatioinRequestTable recommendations={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
+          <RecommendationRequestTable recommendations={recommendationRequestFixtures.threeRecommendationRequests} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
