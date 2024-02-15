@@ -20,12 +20,12 @@ describe("RecommendationRequestForm tests", () => {
                 <RecommendationRequestForm />
             </Router>
         );
-        await screen.findByText(/RequesterEmail/); 
-        await screen.findByText(/ProfessorEmail/); 
+        await screen.findByText(/Requester Email/); 
+        await screen.findByText(/Professor Email/); 
         await screen.findByText(/Explanation/); 
-        await screen.findByText(/DateRequested\(iso format\)/); 
-        await screen.findByText(/DateNeeded\(iso format\)/);
-        await screen.findByText(/done/); 
+        await screen.findByText(/Date Requested\(iso format\)/); 
+        await screen.findByText(/Date Needed\(iso format\)/);
+        await screen.findByText(/Done/); 
         await screen.findByText(/Create/);
     });
 
@@ -34,7 +34,7 @@ describe("RecommendationRequestForm tests", () => {
 
         render(
             <Router  >
-                <RecommendationRequestForm initialContents={recommendationRequestFixtures.oneRequest} />
+                <RecommendationRequestForm initialContents={recommendationRequestFixtures.oneRecommendationRequest} />
             </Router>
         );
         await screen.findByTestId(/RecommendationRequestForm-id/);
