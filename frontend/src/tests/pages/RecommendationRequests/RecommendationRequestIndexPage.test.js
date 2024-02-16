@@ -50,7 +50,7 @@ describe("RecommendationRequestIndexPage tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <RecommendationRequestIndexPage />
+               <RecommendationRequestIndexPage/>
             </MemoryRouter>
          </QueryClientProvider>
       );
@@ -81,9 +81,9 @@ describe("RecommendationRequestIndexPage tests", () => {
       );
 
       // assert
-      await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2"); });
-      expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
-      expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
+      await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); });
+      expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+      expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
       // assert that the Create button is not present when user isn't an admin
       expect(screen.queryByText(/Create RecommendationRequests/)).not.toBeInTheDocument();
@@ -122,7 +122,7 @@ describe("RecommendationRequestIndexPage tests", () => {
       setupAdminUser();
       const queryClient = new QueryClient();
       axiosMock.onGet("/api/recommendationrequests/all").reply(200, recommendationRequestFixtures.threeRecommendationRequests);
-      axiosMock.onDelete("/api/recommendationrequests").reply(200, "RecommendationRequest with id 2 was deleted");
+      axiosMock.onDelete("/api/recommendationrequests").reply(200, "RecommendationRequest with id 1 was deleted");
 
       // act
       render(
@@ -136,7 +136,7 @@ describe("RecommendationRequestIndexPage tests", () => {
       // assert
       await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+      expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("1");
 
       const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
       expect(deleteButton).toBeInTheDocument();
@@ -145,7 +145,7 @@ describe("RecommendationRequestIndexPage tests", () => {
       fireEvent.click(deleteButton);
 
       // assert
-      await waitFor(() => { expect(mockToast).toBeCalledWith("MenuItemReview with id 1 was deleted") });
+      await waitFor(() => { expect(mockToast).toBeCalledWith("RecommendationRequest with id 1 was deleted") });
       await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
       expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequests");
       expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequests");

@@ -1,4 +1,3 @@
-
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -10,6 +9,7 @@ export default {
    title: 'pages/RecommendationRequests/recommendationRequestIndexPage',
    component: RecommendationRequestIndexPage
 };
+
 
 const Template = () => <RecommendationRequestIndexPage storybook={true} />;
 
