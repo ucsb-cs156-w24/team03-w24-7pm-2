@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { MemoryRouter } from "react-router-dom";
-
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequests/RecommendationRequestIndexPage";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { MemoryRouter } from "react-router-dom";
 
 
 describe("RecommendationRequestIndexPage tests", () => {
