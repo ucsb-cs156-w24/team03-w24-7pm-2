@@ -75,7 +75,7 @@ describe("RecommendationRequestIndexPage tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <RecommendationRequestIndexPage />
+               <RecommendationRequestIndexPage/>
             </MemoryRouter>
          </QueryClientProvider>
       );
@@ -145,8 +145,11 @@ describe("RecommendationRequestIndexPage tests", () => {
       fireEvent.click(deleteButton);
 
       // assert
-      await waitFor(() => { expect(mockToast).toBeCalledWith("MenuItemReview with id 2 was deleted") });
-
+      await waitFor(() => { expect(mockToast).toBeCalledWith("MenuItemReview with id 1 was deleted") });
+      await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
+      expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequests");
+      expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequests");
+      expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
    });
 
 });
