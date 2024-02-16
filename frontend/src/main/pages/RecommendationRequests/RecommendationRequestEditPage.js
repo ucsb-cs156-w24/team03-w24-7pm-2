@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export default function RecommendationRequestEditPage({storybook=false}) {
     let { id } = useParams();
 
-    const { data: restaurant, _error, _status } =
+    const { data: recommendationRequests, _error, _status } =
         useBackend(
             // Stryker disable next-line all : don't test internal caching of React Query
             [`/api/recommendationrequests?id=${id}`],
@@ -27,8 +27,8 @@ export default function RecommendationRequestEditPage({storybook=false}) {
             id: recommendationRequests.id,
         },
         data: {
-            requesterEmail: recommendationRequests.requesterEmail,
-          professorEmail: recommendationRequests.professorEmail,
+        requesterEmail: recommendationsRequests.requesterEmail,
+          professorEmail: recommendationsRequests.professorEmail,
           explanation: recommendationRequests.explanation,
           dateRequested: recommendationRequests.dateRequested,
           dateNeeded: recommendationRequests.dateNeeded,
@@ -60,9 +60,9 @@ export default function RecommendationRequestEditPage({storybook=false}) {
     return (
         <BasicLayout>
             <div className="pt-2">
-                <h1>Edit RecommendationRequests</h1>
+                <h1>Edit RecommendationRequest</h1>
                 {
-                    restaurant && <RecommendationRequestForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={recommendationRequests} />
+                    recommendationRequests && <RecommendationRequestForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={recommendationRequests} />
                 }
             </div>
         </BasicLayout>
