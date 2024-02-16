@@ -197,7 +197,7 @@ describe("RecommendationRequestEditPage tests", () => {
          fireEvent.click(submitButton);
 
          await waitFor(() => expect(mockToast).toBeCalled());
-         expect(mockToast).toBeCalledWith("RecommendationRequests Updated - id: 17 requesterEmail: requester17@ucsb.edu");
+         expect(mockToast).toBeCalledWith("RecommendationRequests Updated - id: 17 requesterEmail: requester@ucsb.edu");
          expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequests" });
 
          expect(axiosMock.history.put.length).toBe(1); // times called
