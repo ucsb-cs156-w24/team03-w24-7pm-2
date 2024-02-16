@@ -72,7 +72,7 @@ describe("RecommendationRequestEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/recommendationrequests", { params: { id: 17 } }).reply(200, {
+            axiosMock.onGet("/api/recommendationrequests", { params: { requesterEmail: "requester17@ucsb.edu" } }).reply(200, {
                 id: 17,
                 requesterEmail: "requester17@ucsb.edu",
                 professorEmail: "professor17@ucsb.edu",
@@ -104,7 +104,7 @@ describe("RecommendationRequestEditPage tests", () => {
                 </QueryClientProvider>
             );
 
-            await screen.findByTestId("RecommendationRequestForm-id");
+            await screen.findByTestId("RecommendationRequestForm-requesterEmail");
 
             const idField = screen.getByTestId("RecommendationRequestForm-id");
             const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
@@ -171,7 +171,7 @@ describe("RecommendationRequestEditPage tests", () => {
                 </QueryClientProvider>
             );
 
-            await screen.findByTestId("RecommendationRequestForm-id");
+            await screen.findByTestId("RecommendationRequestForm-requesterEmail");
 
             const idField = screen.getByTestId("RecommendationRequestForm-id");
             const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
