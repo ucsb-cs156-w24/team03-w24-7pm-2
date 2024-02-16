@@ -1,9 +1,8 @@
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
-import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { rest } from "msw";
-
 import { recommendationRequestFixtures } from 'fixtures/recommendationRequestFixtures';
+import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequests/RecommendationRequestEditPage";
+import { rest } from "msw";
 
 export default {
     title: 'pages/RecommendationRequests/RecommendationRequestEditPage',
