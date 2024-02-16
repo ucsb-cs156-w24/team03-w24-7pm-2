@@ -1,28 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdminUsersPage from "main/pages/AdminUsersPage";
 import HomePage from "main/pages/HomePage";
 import ProfilePage from "main/pages/ProfilePage";
-import AdminUsersPage from "main/pages/AdminUsersPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
+import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 
-import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
 import RestaurantCreatePage from "main/pages/Restaurants/RestaurantCreatePage";
 import RestaurantEditPage from "main/pages/Restaurants/RestaurantEditPage";
+import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
 
-import MenuItemReviewIndexPage from "main/pages/MenuItemReviews/MenuItemReviewIndexPage";
 import MenuItemReviewCreatePage from "main/pages/MenuItemReviews/MenuItemReviewCreatePage";
 import MenuItemReviewEditPage from "main/pages/MenuItemReviews/MenuItemReviewEditPage";
+import MenuItemReviewIndexPage from "main/pages/MenuItemReviews/MenuItemReviewIndexPage";
 
-import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
 import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
 import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
 
-import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
+import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequests/RecommendationRequestCreatePage";
+import RecommendationRequestEditPage from "main/pages/RecommendationRequests/RecommendationRequestEditPage";
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequests/RecommendationRequestIndexPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -111,6 +114,21 @@ function App() {
             <>
               <Route exact path="/placeholder/edit/:id" element={<PlaceholderEditPage />} />
               <Route exact path="/placeholder/create" element={<PlaceholderCreatePage />} />
+            </>
+          )
+        }
+         {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendationrequests" element={<RecommendationRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/recommendationrequests/edit/:id" element={<RecommendationRequestEditPage />} />
+              <Route exact path="/recommendationrequests/create" element={<RecommendationRequestCreatePage />} />
             </>
           )
         }
