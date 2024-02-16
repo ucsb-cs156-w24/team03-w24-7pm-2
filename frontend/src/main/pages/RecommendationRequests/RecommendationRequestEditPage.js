@@ -37,7 +37,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
     }
   });
 
-  const onSuccess = (ucsbDate) => {
+  const onSuccess = (recommendationRequests) => {
     toast(`RecommendationRequests Updated - id: ${recommendationRequests.id} requesterEmail: ${recommendationRequests.requesterEmail}`);
   }
 
