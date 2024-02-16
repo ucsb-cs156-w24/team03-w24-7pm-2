@@ -28,7 +28,7 @@ jest.mock('react-router-dom', () => {
    };
 });
 
-describe("RecommendationRequestsCreatePage tests", () => {
+describe("RecommendationRequestCreatePage tests", () => {
 
    const axiosMock = new AxiosMockAdapter(axios);
 
@@ -44,7 +44,7 @@ describe("RecommendationRequestsCreatePage tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <RecommenationRequestCreatePage/>
+               <RecommendationRequestCreatePage/>
             </MemoryRouter>
          </QueryClientProvider>
       );
@@ -54,7 +54,7 @@ describe("RecommendationRequestsCreatePage tests", () => {
 
       const queryClient = new QueryClient();
       const recommendationRequests = {
-         id: 1,
+         id: "1",
         requesterEmail: "requester1@ucsb.edu", 
          professorEmail: "professor1@ucsb.edu",
          explanation: "explain1", 
@@ -68,21 +68,21 @@ describe("RecommendationRequestsCreatePage tests", () => {
       render(
          <QueryClientProvider client={queryClient}>
             <MemoryRouter>
-               <RecommendationRequestCreatePage />
+               <RecommendationRequestCreatePage/>
             </MemoryRouter>
          </QueryClientProvider>
       );
 
       await waitFor(() => {
-         expect(screen.getByTestId("RecommendationRequestForm-id")).toBeInTheDocument();
+         expect(screen.getByTestId("RecommendationRequestForm-requesterEmail")).toBeInTheDocument();
       });
 
-      const requeserEmailField = screen.getByTestId("RecommenationRequestForm-requesterEmail");
-       const professorEmailField = screen.getByTestId("RecommenationRequestForm-professorEmail")
-       const explanationField = screen.getByTestId("RecommenationRequestForm-explanation");
-       const dateRequestedField = screen.getByTestId("RecommenationRequestForm-dateRequested");
-       const dateNeededField = screen.getByTestId("RecommenationRequestForm-dateNeeded");
-       const doneField = screen.getByTestId("RecommenationRequestForm-done");
+      const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
+       const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail")
+       const explanationField = screen.getByTestId("RecommendationRequestForm-explanation");
+       const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
+       const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
+       const doneField = screen.getByTestId("RecommendationRequestForm-done");
 
       const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
@@ -109,7 +109,7 @@ describe("RecommendationRequestsCreatePage tests", () => {
             "done": "false"
          });
 
-      expect(mockToast).toBeCalledWith("New recommendationRequest Created - id: 1 requesterEmail:requester1@ucsb.edu");
+      expect(mockToast).toBeCalledWith("New recommendationRequest Created - id: 1 requesterEmail: requester1@ucsb.edu");
       expect(mockNavigate).toBeCalledWith({ "to": "/recommendationrequests" });
    });
 
