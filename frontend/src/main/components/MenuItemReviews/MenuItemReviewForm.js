@@ -55,7 +55,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                   <Form.Control
                      data-testid="MenuItemReviewForm-itemId"
                      id="itemId"
-                     type="text"
+                     type="number"
                      isInvalid={Boolean(errors.itemId)}
                      {...register("itemId", { required: true,})}
                   />
