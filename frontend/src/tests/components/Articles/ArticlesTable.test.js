@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+// import { BrowserRouter as Router } from "react-router-dom";
 
 import ArticlesTable from "main/components/Articles/ArticlesTable";
 import { articlesFixtures } from "fixtures/articlesFixtures";
