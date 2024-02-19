@@ -23,7 +23,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
 
     // Stryker disable next-line all
-    const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+    // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 
     return (
 
@@ -50,23 +50,23 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
 
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="title">title</Form.Label>
+                        <Form.Label htmlFor="title">Title</Form.Label>
                         <Form.Control
-                            data-testid="Articles-title"
+                            data-testid="ArticlesForm-title"
                             id="title"
                             type="text"
                             isInvalid={Boolean(errors.title)}
-                            {...register("title", { required: true, pattern: yyyyq_regex })}
+                            {...register("title", 
+                            { required: "Title is required" })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.title && 'Title is required. '}
-                            {errors.title?.type === 'pattern' && 'Title must be in the format YYYYQ, e.g. 20224 for Fall 2022'}
+                            {errors.title?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateAdded">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateAdded">Date Added (iso format)</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-dateAdded"
                             id="dateAdded"
