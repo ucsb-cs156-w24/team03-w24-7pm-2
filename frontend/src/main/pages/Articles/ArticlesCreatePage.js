@@ -1,14 +1,51 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-//(new real changes from micahel-Articles-table-component and michael-Articles-placeholders besides this comment; 
-// I made this so I can commit and publish a new branch
+import ArticlesForm from "main/components/Articles/ArticlesForm";
+import { Navigate } from 'react-router-dom'
+import { useBackendMutation } from "main/utils/useBackend";
+import { toast } from "react-toastify";
 
-export default function ArticlesCreatePage() {
+export default function ArticlesCreatePage({storybook=false}) {
 
-  // Stryker disable all : placeholder for future implementation
+  const objectToAxiosParams = (articles) => ({
+    url: "/api/ucsbarticles/post",
+    method: "POST",
+    params: {
+      title: articles.title,
+      url: articles.url,
+      explanation: articles.explanation,
+      email: articles.email,
+      dateAdded: articles.dateAdded
+    }
+  });
+
+  const onSuccess = (articles) => {
+    toast(`New articles Created - id: ${articles.id} title: ${articles.title}`);
+  }
+
+  const mutation = useBackendMutation(
+    objectToAxiosParams,
+     { onSuccess }, 
+     // Stryker disable next-line all : hard to set up test for caching
+     ["/api/ucsbarticles/all"]
+     );
+
+  const { isSuccess } = mutation
+
+  const onSubmit = async (data) => {
+    mutation.mutate(data);
+  }
+
+  if (isSuccess && !storybook) {
+    return <Navigate to="/articles" />
+  }
+
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Create page not yet implemented</h1>
+        <h1>Create New Articles</h1>
+
+        <ArticlesForm submitAction={onSubmit} />
+
       </div>
     </BasicLayout>
   )
