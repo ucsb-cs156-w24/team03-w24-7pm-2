@@ -1,4 +1,4 @@
-# STARTER-team03
+# team03-w24-7pm-2
 
 Instructions: <https://ucsb-cs156.github.io/f23/lab/team03.html>
 
@@ -13,14 +13,14 @@ Deployments:
 
 TODO: Fill in this table with correct information. 
 
-| Table                     | Name         | Github Id |
-|---------------------------|--------------|-----------|
-| UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
-| RecommendationRequest     |              |           |
-| MenuItemReview            |              |           |
-| HelpRequest               |              |           |
-| Articles                  |              |           |
+| Table                       | Team Member  | Github Id     |
+|-----------------------------|--------------|---------------|
+| UCSBDiningCommonsMenuItem   | Ashton       | ashton-wong      |
+| UCSBOrganization            | Elaine       | elaineeeho       |
+| RecommendationRequest       | Andy         | andy-gale        |
+| MenuItemReview              | Liliana      | nguyenliliana    |
+| HelpRequest                 | Kavya        | Kavya75          |
+| Articles                    | Michael      | michaelw1985     |
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
