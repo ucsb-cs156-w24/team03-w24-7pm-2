@@ -52,8 +52,8 @@ export default function RecommendationRequestTable({ recommendations, currentUse
             accessor: 'dateNeeded',
         },
         {
-            Header: 'Done',
-            accessor: 'done',
+            Header: 'done',
+            accessor: (row,_rowIndex) => String(row.done)
         }
     ];
 
