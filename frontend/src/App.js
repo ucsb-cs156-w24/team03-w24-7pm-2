@@ -34,6 +34,9 @@ import ArticlesEditPage from "main/pages/Articles/ArticlesEditPage";
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
+import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
+import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 
 function App() {
   const { data: currentUser } = useCurrentUser();
@@ -118,6 +121,21 @@ function App() {
             <>
               <Route exact path="/menuitemreview/edit/:id" element={<MenuItemReviewEditPage />} />
               <Route exact path="/menuitemreview/create" element={<MenuItemReviewCreatePage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequest" element={<HelpRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
+              <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
             </>
           )
         }

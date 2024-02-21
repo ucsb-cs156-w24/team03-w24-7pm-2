@@ -21,7 +21,7 @@ const helpRequestFixtures = {
         {
             "id": 3,
             "requesterEmail": "catskin@ucsb.edu",
-            "teamId": "w24-7pm-3",
+            "teamId": "w24-7pm-4",
             "tableOrBreakoutRoom": "5",
             "requestTime": "2024-02-07T00:00:00",
             "explanation": "liquibase error",
@@ -30,7 +30,7 @@ const helpRequestFixtures = {
         {
             "id": 4,
             "requesterEmail": "beaver@ucsb.edu",
-            "teamId": "w24-7pm-4",
+            "teamId": "w24-7pm-5",
             "tableOrBreakoutRoom": "4",
             "requestTime": "2024-02-08T00:00:00",
             "explanation": "errors with team03",
