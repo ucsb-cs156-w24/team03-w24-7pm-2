@@ -63,7 +63,7 @@ export default function RecommendationRequestEditPage({storybook=false}) {
       <div className="pt-2">
         <h1>Edit RecommendationRequests</h1>
         {
-          recommendationRequests && <RecommendationRequestForm initialContents={recommendationRequests} submitAction={onSubmit} buttonLabel="Update" />
+          recommendationRequests && <RecommendationRequestForm initialContents={recommendationRequests} submitAction={onSubmit} buttonLabel={"Update"} />
         }
       </div>
     </BasicLayout>
