@@ -112,9 +112,11 @@ describe("HelpRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("cgaucho@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("false");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("catskin@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-Solved`)).toHaveTextContent("true");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
