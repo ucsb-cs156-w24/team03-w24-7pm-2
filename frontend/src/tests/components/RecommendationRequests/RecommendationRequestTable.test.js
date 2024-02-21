@@ -17,7 +17,7 @@ describe("RecommendationRequestTable tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
-  const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
+  const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "Done"];
   const testId = "RecommendationRequestTable";
 
   test("renders empty table correctly", () => {
@@ -72,9 +72,11 @@ describe("RecommendationRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("professor1@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-Done`)).toHaveTextContent("false");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("requester2@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-professorEmail`)).toHaveTextContent("professor2@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-Done`)).toHaveTextContent("true");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -112,9 +114,11 @@ describe("RecommendationRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("professor1@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-Done`)).toHaveTextContent("false");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("requester2@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-professorEmail`)).toHaveTextContent("professor2@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-Done`)).toHaveTextContent("true");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();

@@ -1,9 +1,9 @@
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
 import HelpRequestTable from "main/components/HelpRequest/HelpRequestTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import { currentUserFixtures } from "fixtures/currentUserFixtures";
 
 
 const mockedNavigate = jest.fn();
@@ -17,7 +17,7 @@ describe("HelpRequestTable tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "RequesterEmail", "TeamId", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
-  const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+  const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "Solved"];
   const testId = "HelpRequestTable";
 
   test("renders empty table correctly", () => {
@@ -112,9 +112,11 @@ describe("HelpRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("cgaucho@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("false");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("catskin@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-Solved`)).toHaveTextContent("true");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
