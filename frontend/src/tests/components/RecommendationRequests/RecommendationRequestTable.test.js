@@ -139,7 +139,7 @@ describe("RecommendationRequestTable tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(screen.findByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
+    expect(await screen.findByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("professor1@ucsb.edu");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
