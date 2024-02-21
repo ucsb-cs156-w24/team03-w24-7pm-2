@@ -72,11 +72,11 @@ describe("RecommendationRequestTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("requester1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("professor1@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-Done`)).toHaveTextContent("false");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-done`)).toHaveTextContent("false");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("requester2@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-professorEmail`)).toHaveTextContent("professor2@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-Done`)).toHaveTextContent("true");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("true");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
