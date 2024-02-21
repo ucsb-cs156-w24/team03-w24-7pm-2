@@ -27,7 +27,6 @@ import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage"
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 
-
 import RecommendationRequestCreatePage from "main/pages/RecommendationRequests/RecommendationRequestCreatePage";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequests/RecommendationRequestEditPage";
 import RecommendationRequestIndexPage from "main/pages/RecommendationRequests/RecommendationRequestIndexPage";
@@ -144,7 +143,6 @@ function App() {
             </>
           )
         }
-
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
