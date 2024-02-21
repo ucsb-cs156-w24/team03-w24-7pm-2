@@ -5,8 +5,8 @@ Instructions: <https://ucsb-cs156.github.io/f23/lab/team03.html>
 
 Deployments:
 
-* Prod: <https://team03.dokku-17.cs.ucsb.edu>
-* QA: <https://team03-qa.dokku-17.cs.ucsb.edu>
+* Prod: <https://team03.dokku-14.cs.ucsb.edu>
+* QA: <https://team03-qa.dokku-14.cs.ucsb.edu>
 
 
 | Table                       | Team Member  | Github Id     |
