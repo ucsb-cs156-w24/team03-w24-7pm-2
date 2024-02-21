@@ -52,7 +52,7 @@ export default function RecommendationRequestTable({ recommendations, currentUse
             accessor: 'dateNeeded',
         },
         {
-            Header: 'done',
+            Header: 'Done',
             accessor: (row,_rowIndex) => String(row.done)
         }
     ];

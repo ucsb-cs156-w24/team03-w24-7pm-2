@@ -1,9 +1,9 @@
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
 import HelpRequestTable from "main/components/HelpRequest/HelpRequestTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import { currentUserFixtures } from "fixtures/currentUserFixtures";
 
 
 const mockedNavigate = jest.fn();
@@ -17,7 +17,7 @@ describe("HelpRequestTable tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "RequesterEmail", "TeamId", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
-  const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+  const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "Solved"];
   const testId = "HelpRequestTable";
 
   test("renders empty table correctly", () => {
