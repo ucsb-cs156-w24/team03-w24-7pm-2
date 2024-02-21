@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-w24/team03-w24-7pm-2
 owner: ucsb-cs156-w24
 repo_name: team03-w24-7pm-2
-pull_requests: [{"author":{"id":"MDQ6VXNlcjc3NDczMTE0","is_bot":false,"login":"andy-gale","name":"Andy Gale"},"headRefName":"Andy-ReqRequest-EditPage","number":176,"title":"Andy req request edit page","url":"https://github.com/ucsb-cs156-w24/team03-w24-7pm-2/pull/176"},{"author":{"id":"MDQ6VXNlcjc3NDczMTE0","is_bot":false,"login":"andy-gale","name":"Andy Gale"},"headRefName":"Andy-ReqRequest-IndexPage","number":163,"title":"Andy req request index page","url":"https://github.com/ucsb-cs156-w24/team03-w24-7pm-2/pull/163"},{"author":{"id":"MDQ6VXNlcjc3NDczMTE0","is_bot":false,"login":"andy-gale","name":"Andy Gale"},"headRefName":"Andy-ReqRequest-CreatePage","number":156,"title":"Andy req request create page","url":"https://github.com/ucsb-cs156-w24/team03-w24-7pm-2/pull/156"},{"author":{"id":"MDQ6VXNlcjc3NDczMTE0","is_bot":false,"login":"andy-gale","name":"Andy Gale"},"headRefName":"Andy-ReqRequest-Placeholders","number":155,"title":"Andy req request placeholders","url":"https://github.com/ucsb-cs156-w24/team03-w24-7pm-2/pull/155"}]
+pull_requests: []
